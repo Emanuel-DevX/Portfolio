@@ -16,12 +16,13 @@ import {
 } from 'react-icons/fa'
 const AppLauncherNavbar = ({ activeApp, setActiveApp }) => {
   const apps = [
-    { name: 'Chat', icon: FaComments },
     { name: 'Projects', icon: FaLaptopCode },
-    { name: 'Terminal', icon: FaTerminal },
-    { name: 'About', icon: FaUser },
-    { name: 'Blog', icon: FaBlog },
     { name: 'Tech', icon: FaCode },
+
+    { name: 'Me', icon: FaUser },
+    { name: 'Blog', icon: FaBlog },
+    { name: 'Chat', icon: FaComments },
+    { name: 'Terminal', icon: FaTerminal },
   ]
 
   //   const visibleApps = window.innerWidth < 768 ? apps.filter(app => app !== 'Terminal') : apps;
