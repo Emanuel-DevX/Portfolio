@@ -14,7 +14,7 @@ import {
   FaCode,
   FaBlog,
 } from 'react-icons/fa'
-const AppLauncherNavbar = ({ activeApp }) => {
+const AppLauncherNavbar = ({ activeApp, setActiveApp }) => {
   const apps = [
     { name: 'Chat', icon: FaComments },
     { name: 'Projects', icon: FaLaptopCode },
@@ -35,6 +35,11 @@ const AppLauncherNavbar = ({ activeApp }) => {
         {visibleApps.map(({ name, icon: Icon }) => (
           <button
             key={name}
+            onClick={() => {
+              if (name === activeApp)
+              setActiveApp(null)
+              else
+              setActiveApp(name)}}
             className={`flex flex-col sm:flex-row items-center gap-1 sm:gap-2 px-3 py-1 md:py-2 rounded-md transition-transform duration-200 hover:scale-105 ${
               activeApp === name
                 ? 'md:bg-white/10 md:ring-2 md:ring-white/30 text-[#ce9c13]'
