@@ -127,9 +127,13 @@ function Home() {
 
             {/* CTA */}
             <div className="flex gap-4 justify-center md:justify-start pt-2">
-              <button className="px-4 py-3 bg-gradient-to-r from-yellow-400 via-orange-300 to-red-600 text-black font-semibold rounded-full hover:font-bold hover:from-yellow-300 hover:to-red-600 transition-all duration-300 hover:scale-105 shadow-lg">
+              <a
+                href="/resume.pdf"
+                download={'Emanuel_Molla_Resume.pdf'}
+                className="px-4 py-3 bg-gradient-to-r from-yellow-400 via-orange-300 to-red-600 text-black font-semibold rounded-full hover:font-bold hover:from-yellow-300 hover:to-red-600 transition-all duration-300 hover:scale-105 shadow-lg"
+              >
                 Download Resume
-              </button>
+              </a>
             </div>
           </div>
         </div>
