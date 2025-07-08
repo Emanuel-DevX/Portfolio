@@ -2,15 +2,11 @@
 // AppLauncherNavbar.jsx
 import React from 'react'
 import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
+
   FaComments,
   FaLaptopCode,
   FaTerminal,
   FaUser,
-  FaPenNib,
-  FaTools,
   FaCode,
   FaBlog,
 } from 'react-icons/fa'
@@ -18,7 +14,6 @@ const AppLauncherNavbar = ({ activeApp, setActiveApp }) => {
   const apps = [
     { name: 'Projects', icon: FaLaptopCode },
     { name: 'Tech', icon: FaCode },
-
     { name: 'Me', icon: FaUser },
     { name: 'Blog', icon: FaBlog },
     { name: 'Chat', icon: FaComments },
