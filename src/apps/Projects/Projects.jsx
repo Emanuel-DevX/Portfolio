@@ -15,7 +15,7 @@ const Projects = function () {
         setFilters={setFilters}
       />
 
-      <div className="flex flex-wrap gap-5 ">
+      <div className="flex flex-wrap gap-5 mt-2">
         {projects && projects.map((project) => <ProjectCard project={project} />)}
       </div>
     </>
