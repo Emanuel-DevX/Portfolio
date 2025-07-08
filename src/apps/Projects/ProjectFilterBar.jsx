@@ -26,7 +26,7 @@ const ProjectFilterBar = function ({ searchInput, setSearchInput, filters, setFi
   const selectedSort = sortOptions.find((sort) => sort.value === filters.sort) || sortOptions[0]
 
   return (
-    <div className="w-full max-w-6xl sticky top-0">
+    <div className="w-full max-w-6xl sticky top-0 z-10">
       <div className="flex items-center justify-center  gap-1 p-2 ">
         {/* Tech Filter Dropdown */}
         <div className="relative">
