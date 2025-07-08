@@ -22,8 +22,11 @@ const ProjectFilterBar = function ({ searchInput, setSearchInput, filters, setFi
     { value: 'z-a', label: 'Title Z-A' },
   ]
 
+
   const selectedTech = techOptions.find((tech) => tech.value === filters.tech) || techOptions[0]
   const selectedSort = sortOptions.find((sort) => sort.value === filters.sort) || sortOptions[0]
+
+  
 
   return (
     <div className="w-full max-w-6xl sticky top-0 z-10">
