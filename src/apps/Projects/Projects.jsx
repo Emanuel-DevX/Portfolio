@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import ProjectFilterBar from './ProjectFilterBar'
+import projects from '../../data/projects'
+import ProjectCard from './ProjectCard'
 const Projects = function () {
   const [filters, setFilters] = useState([])
   const [searchInput, setSearchInput] = useState('')
@@ -13,7 +15,8 @@ const Projects = function () {
         setFilters={setFilters}
       />
 
-      <div className="h-800">
+      <div className="flex flex-wrap gap-5 ">
+        {projects && projects.map((project) => <ProjectCard project={project} />)}
       </div>
     </>
   )

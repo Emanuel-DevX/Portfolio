@@ -30,6 +30,7 @@ const projects = [
     techStack: ['React', 'Express', 'MongoDB', 'JWT', 'Tailwind CSS'],
     image: 'https://res.cloudinary.com/dbcdlkfty/image/upload/v1751948132/scholiast_fqni1l.png',
     github: 'https://github.com/Emanuel-DevX/Scholiast',
+    url:'https://sholiast.webios.link',
     date: 'May 2025',
     role: 'Backend Developer',
     isGroup: true,
