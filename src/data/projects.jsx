@@ -4,10 +4,10 @@ const projects = [
     description:
       'A RESTful API for managing book reviews. Supports advanced book search, review storage, and role-based access.',
     techStack: ['Node.js', 'Express', 'MongoDB', 'JWT', 'Mongoose'],
-    image: 'https://via.placeholder.com/400x200?text=BookPinion',
+    image: 'https://res.cloudinary.com/dbcdlkfty/image/upload/v1751948333/bookPinion_o5ojtv.png',
     github: 'https://github.com/Emanuel-DevX/BookPinion-API',
     url: 'https://bookpinion-api.onrender.com',
-    date: 'July 2025',
+    date: 'June 2025',
     role: 'Solo Developer',
     isGroup: false,
   },
@@ -16,7 +16,7 @@ const projects = [
     description:
       'A portfolio that mimics a desktop OS. Users can explore different apps like Chat, Terminal, and Projects.',
     techStack: ['React', 'Tailwind CSS', 'Vite'],
-    image: 'https://via.placeholder.com/400x200?text=Portfolio',
+    image: 'https://res.cloudinary.com/dbcdlkfty/image/upload/v1751948436/port_r5p04y.png',
     github: 'https://github.com/Emanuel-DevX/emanuelmolla.dev',
     url: 'https://emanuelmolla.dev',
     date: 'July 2025',
@@ -28,7 +28,7 @@ const projects = [
     description:
       'A student productivity platform with flashcards, resource management, and weekly goal tracking.',
     techStack: ['React', 'Express', 'MongoDB', 'JWT', 'Tailwind CSS'],
-    image: 'https://via.placeholder.com/400x200?text=Scholiast',
+    image: 'https://res.cloudinary.com/dbcdlkfty/image/upload/v1751948132/scholiast_fqni1l.png',
     github: 'https://github.com/Emanuel-DevX/Scholiast',
     date: 'May 2025',
     role: 'Backend Developer',
@@ -39,20 +39,10 @@ const projects = [
     description:
       'Task + notes + sprint planner with Markdown and Prism syntax highlighting. Built for dev teams.',
     techStack: ['React', 'Express', 'MongoDB', 'Prism.js', 'Tailwind CSS'],
-    image: 'https://via.placeholder.com/400x200?text=DevVault',
+    image:
+      'https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     github: 'https://github.com/Emanuel-DevX/DevVault',
     date: 'July 2025',
-    role: 'Solo Developer',
-    isGroup: false,
-  },
-  {
-    title: 'PokeMatch Memory Game',
-    description:
-      'A card-matching memory game using PokéAPI. Includes a timer, themes, and power-ups.',
-    techStack: ['JavaScript', 'HTML', 'CSS', 'Axios', 'PokéAPI'],
-    image: 'https://via.placeholder.com/400x200?text=PokeMatch',
-    github: 'https://github.com/Emanuel-DevX/PokeMatch',
-    date: 'April 2025',
     role: 'Solo Developer',
     isGroup: false,
   },
