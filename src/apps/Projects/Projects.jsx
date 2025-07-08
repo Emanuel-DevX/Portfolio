@@ -3,20 +3,18 @@ import ProjectFilterBar from './ProjectFilterBar'
 const Projects = function () {
   const [filters, setFilters] = useState([])
   const [searchInput, setSearchInput] = useState('')
-  
-   
-     return (<>
- 
-   
-           <ProjectFilterBar
-             searchInput={searchInput}
-             setSearchInput={setSearchInput}
-             filters={filters}
-             setFilters={setFilters}
-           />
-   
-  
-      <div className='h-800'></div>
+
+  return (
+    <>
+      <ProjectFilterBar
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        filters={filters}
+        setFilters={setFilters}
+      />
+
+      <div className="h-800">
+      </div>
     </>
   )
 }

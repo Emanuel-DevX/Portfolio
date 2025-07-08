@@ -26,16 +26,16 @@ const ProjectFilterBar = function ({ searchInput, setSearchInput, filters, setFi
   const selectedSort = sortOptions.find((sort) => sort.value === filters.sort) || sortOptions[0]
 
   return (
-    <div className="w-full max-w-6xl">
+    <div className="w-full max-w-6xl sticky top-0">
       <div className="flex items-center justify-center  gap-1 p-2 ">
         {/* Tech Filter Dropdown */}
         <div className="relative">
           <button
             onClick={() => setIsFilterOpen(!isFilterOpen)}
-            className="flex items-center gap-2 px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-200 text-white min-w-[140px]"
+            className="flex items-center lg:gap-2 px-2 lg:px-4 py-3 lg:min-w-32 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-200 text-white"
           >
             <Filter size={18} className="text-yellow-400" />
-            <span className="text-sm font-medium">{selectedTech.label}</span>
+            <span className="text-sm font-medium hidden lg:block">{selectedTech.label}</span>
             <ChevronDown
               size={16}
               className={`transition-transform ${isFilterOpen ? 'rotate-180' : ''}`}
@@ -43,7 +43,7 @@ const ProjectFilterBar = function ({ searchInput, setSearchInput, filters, setFi
           </button>
 
           {isFilterOpen && (
-            <div className="absolute top-full left-0 mt-2 w-48 rounded-xl bg-zinc-800/95 backdrop-blur-sm border border-white/10 shadow-xl z-50">
+            <div className="absolute top-full left-0 mt-2 w-36 rounded-xl bg-zinc-800/95 backdrop-blur-sm border border-white/10 shadow-xl z-50">
               {techOptions.map((tech) => {
                 const IconComponent = tech.icon
                 return (
@@ -65,7 +65,7 @@ const ProjectFilterBar = function ({ searchInput, setSearchInput, filters, setFi
         </div>
 
         {/* Search Input - Centered */}
-        <div className="min-w-md max-w-md">
+        <div className="lg:min-w-md max-w-md">
           <div className="relative backdrop-blur-sm">
             <Search
               size={20}
@@ -85,10 +85,10 @@ const ProjectFilterBar = function ({ searchInput, setSearchInput, filters, setFi
         <div className="relative">
           <button
             onClick={() => setIsSortOpen(!isSortOpen)}
-            className="flex items-center gap-2 px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-200 text-white min-w-[140px]"
+            className="flex items-center lg:gap-2 px-2 lg:min-w-32 lg:px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-200 text-white "
           >
             <SortAsc size={18} className="text-orange-400" />
-            <span className="text-sm font-medium">{selectedSort.label}</span>
+            <span className="text-sm font-medium hidden lg:block">{selectedSort.label}</span>
             <ChevronDown
               size={16}
               className={`transition-transform ${isSortOpen ? 'rotate-180' : ''}`}
@@ -96,7 +96,7 @@ const ProjectFilterBar = function ({ searchInput, setSearchInput, filters, setFi
           </button>
 
           {isSortOpen && (
-            <div className="absolute top-full right-0 mt-2 w-48 rounded-xl bg-zinc-800/95 backdrop-blur-sm border border-white/10 shadow-xl z-50">
+            <div className="absolute top-full right-0 mt-2 w-36 rounded-xl bg-zinc-800/95 backdrop-blur-sm border border-white/10 shadow-xl z-50">
               {sortOptions.map((sort) => (
                 <button
                   key={sort.value}
@@ -116,7 +116,5 @@ const ProjectFilterBar = function ({ searchInput, setSearchInput, filters, setFi
     </div>
   )
 }
-
-
 
 export default ProjectFilterBar
