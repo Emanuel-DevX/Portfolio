@@ -1,4 +1,18 @@
 const TechCard = function({tech}){
+    const getProficiencyColor = (proficiency) => {
+      switch (proficiency) {
+        case 'Advanced':
+          return 'text-green-400'
+        case 'Intermediate':
+          return 'text-yellow-400'
+        case 'Beginner':
+          return 'text-orange-400'
+        case 'Learning':
+          return 'text-blue-400'
+        default:
+          return 'text-gray-400'
+      }
+    }
     return (
       <div
         key={tech.name}
