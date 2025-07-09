@@ -5,14 +5,16 @@ import EducationSection from "./components/Education"
 import HobbiesSection from "./components/Hobbies"
 
 const Me = function () {
+  
   return (
     <>
-      <div>
+      <div className="relative">
         <HeroSection />
         <AboutSection />
         <JourneySection />
         <EducationSection />
         <HobbiesSection />
+
       </div>
     </>
   )
