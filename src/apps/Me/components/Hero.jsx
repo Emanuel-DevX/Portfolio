@@ -1,0 +1,59 @@
+import React from 'react'
+import {
+  FaChess,
+  FaBook,
+  FaDumbbell,
+  FaGuitar,
+  FaFutbol,
+  FaGraduationCap,
+  FaHeart,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaStar,
+  FaLightbulb,
+  FaCode,
+  FaMountain,
+} from 'react-icons/fa'
+import { SiCplusplus } from 'react-icons/si'
+
+// Hero Section Component
+const HeroSection = () => {
+  return (
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-900 via-black to-zinc-900 text-white px-6">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="mb-8">
+          <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-gradient-to-r from-yellow-400 via-orange-300 to-red-600 p-1">
+            <img
+              src="/api/placeholder/200/200"
+              alt="Emanuel Molla"
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
+          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-orange-300 to-red-600 bg-clip-text text-transparent">
+            Hi, I'm Emanuel
+          </h1>
+          <p className="text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed">
+            A passionate backend developer from Ethiopia, now thriving in Canada. I love solving problems through code,
+            playing chess, and exploring the endless possibilities of technology.
+          </p>
+        </div>
+
+        <div className="flex justify-center space-x-8 text-sm text-zinc-400">
+          <div className="flex items-center gap-2">
+            <FaMapMarkerAlt className="text-red-400" />
+            <span>Surrey, BC</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <FaGraduationCap className="text-blue-400" />
+            <span>BCIT Student</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <FaHeart className="text-red-400" />
+            <span>Problem Solver</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+export default HeroSection
