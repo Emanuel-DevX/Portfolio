@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaComments, FaLaptopCode, FaTerminal, FaUser, FaCode, FaBlog } from 'react-icons/fa'
+import './appWindow.css'
 
 import Chat from '../apps/Chat/Chat'
 import Projects from '../apps/Projects/Projects'
@@ -39,20 +40,9 @@ const AppWindow = ({ app, setActiveApp }) => {
           Close
         </button>
       </div>
-      <div className="p-4 flex1 h-full overflow-y-auto overflow-auto scrollbar-hide  bg-zinc-900/90 backdrop-blur-lg">
+      <div className="p-4 flex1 h-full overflow-y-auto overflow-auto custom-scrollbar  bg-zinc-900/90 backdrop-blur-lg">
         <Component />
       </div>
-      <style>
-        {`
-           .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        `}
-      </style>
     </div>
   )
 }

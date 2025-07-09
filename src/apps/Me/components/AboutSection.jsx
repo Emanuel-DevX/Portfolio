@@ -30,7 +30,7 @@ const AboutSection = () => {
             </p>
 
             <p className="text-lg text-zinc-300 leading-relaxed">
-              My faith through the <strong className="text-yellow-400">Ethiopian Orthodox Church</strong> plays a huge
+              My faith through the <strong className="">Ethiopian Orthodox Church</strong> plays a huge
               role in shaping who I am. It guides my values, keeps me grounded, and reminds me to approach life with
               gratitude and purpose.
             </p>
