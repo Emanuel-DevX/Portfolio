@@ -1,3 +1,4 @@
+import { FaChess, FaBook, FaDumbbell, FaGuitar, FaFutbol } from 'react-icons/fa'
 const HobbiesSection = () => {
   const hobbies = [
     {
@@ -45,7 +46,7 @@ const HobbiesSection = () => {
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {hobbies.map((hobby, index) => (
+          {hobbies.map((hobby) => (
             <div
               key={hobby.name}
               className="bg-black/50 rounded-2xl p-6 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"

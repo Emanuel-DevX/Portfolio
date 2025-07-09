@@ -1,3 +1,4 @@
+import { SiCplusplus } from 'react-icons/si'
 const JourneySection = () => {
   return (
     <section className="py-20 bg-zinc-900 text-white px-6">

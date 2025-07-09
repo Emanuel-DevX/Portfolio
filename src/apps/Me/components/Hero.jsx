@@ -1,22 +1,6 @@
 import React from 'react'
-import {
-  FaChess,
-  FaBook,
-  FaDumbbell,
-  FaGuitar,
-  FaFutbol,
-  FaGraduationCap,
-  FaHeart,
-  FaMapMarkerAlt,
-  FaCalendarAlt,
-  FaStar,
-  FaLightbulb,
-  FaCode,
-  FaMountain,
-} from 'react-icons/fa'
-import { SiCplusplus } from 'react-icons/si'
+import { FaGraduationCap, FaPuzzlePiece, FaMapMarkerAlt } from 'react-icons/fa'
 
-// Hero Section Component
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-zinc-900 via-black to-zinc-900 text-white px-6">
@@ -33,8 +17,8 @@ const HeroSection = () => {
             Hi, I'm Emanuel
           </h1>
           <p className="text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed">
-            A passionate backend developer from Ethiopia, now thriving in Canada. I love solving problems through code,
-            playing chess, and exploring the endless possibilities of technology.
+            I love solving real problems with code, building tools that help people, and constantly learning how
+            technology works behind the scenes.
           </p>
         </div>
 
@@ -48,7 +32,7 @@ const HeroSection = () => {
             <span>BCIT Student</span>
           </div>
           <div className="flex items-center gap-2">
-            <FaHeart className="text-red-400" />
+            <FaPuzzlePiece className="text-amber-400" />
             <span>Problem Solver</span>
           </div>
         </div>

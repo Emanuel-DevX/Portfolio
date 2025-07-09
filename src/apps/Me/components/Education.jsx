@@ -1,3 +1,18 @@
+import {
+  FaChess,
+  FaBook,
+  FaDumbbell,
+  FaGuitar,
+  FaFutbol,
+  FaGraduationCap,
+  FaHeart,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaStar,
+  FaLightbulb,
+  FaCode,
+  FaMountain,
+} from 'react-icons/fa'
 const EducationSection = () => {
   return (
     <section className="py-20 bg-black/30 text-white px-6">
