@@ -10,7 +10,7 @@ const topTechnologies = [
   {
     name: 'Python',
     rank: 2,
-    reason: 'Clean syntax and quick to prototype with. I use it for interview prep. It’s just satisfying to work with.',
+    reason: "Clean syntax and quick to prototype with. I use it for interview prep. It's just satisfying to work with.",
     firstEncounter: '2020',
     proficiency: 'Intermediate',
     whyTop: 'Elegant syntax and super versatile for backend, data, and scripting',
