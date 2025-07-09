@@ -6,14 +6,14 @@ const Tech = function () {
   return (
     <>
       <div>
-        <div className="text-center mb-12">
-          <h1 className="text-2xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-orange-300 to-red-600 bg-clip-text text-transparent">
+        <div className="text-center  mb-8">
+          <h1 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-orange-300 to-red-600 bg-clip-text text-transparent">
             My Tech Stack
           </h1>
         </div>
 
         <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
+          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
             <FaHeart className="text-red-600" />
             Current Favorites
           </h2>
