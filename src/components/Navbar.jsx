@@ -69,7 +69,7 @@ const AppLauncherNavbar = ({ activeApp, setActiveApp }) => {
   }
 
   .animate-border-gradient {
-    animation: fireBorder 7.5s linear infinite;
+    animation: fireBorder 15s linear infinite;
   }
       `}</style>
     </nav>

@@ -3,35 +3,35 @@ const HobbiesSection = () => {
   const hobbies = [
     {
       name: 'Chess',
-      icon: <FaChess className="text-3xl text-yellow-400" />,
+      icon: <FaChess className="text-3xl text-[#879289]" />,
       status: 'Current main hobby',
       description: "My strategic thinking playground. Always up for a game - it's like coding but with pieces!",
       level: 'Intermediate',
     },
     {
       name: 'Reading',
-      icon: <FaBook className="text-3xl text-blue-400" />,
+      icon: <FaBook className="text-3xl text-[#854c2c]" />,
       status: 'Considering starting',
       description: 'Want to dive deeper into both technical books and fiction. Knowledge is power!',
       level: 'Goal',
     },
     {
       name: 'Exercise',
-      icon: <FaDumbbell className="text-3xl text-red-400" />,
+      icon: <FaDumbbell className="text-3xl text-[#dda271]" />,
       status: 'Goal to start',
       description: 'Time to get back into physical fitness. A healthy body supports a healthy mind.',
       level: 'Goal',
     },
     {
       name: 'Guitar',
-      icon: <FaGuitar className="text-3xl text-orange-400" />,
+      icon: <FaGuitar className="text-3xl text-orange-300" />,
       status: 'Dream to learn',
       description: "Music has always fascinated me. One day I'll make time for this creative outlet.",
       level: 'Dream',
     },
     {
       name: 'Football (Soccer)',
-      icon: <FaFutbol className="text-3xl text-green-400" />,
+      icon: <FaFutbol className="text-3xl text-wite" />,
       status: 'Childhood favorite',
       description: 'Growing up, I loved both watching (especially World Cups) and playing. The beautiful game!',
       level: 'Nostalgic',
@@ -54,7 +54,7 @@ const HobbiesSection = () => {
               <div className="flex items-center gap-3 mb-4">
                 {hobby.icon}
                 <div>
-                  <h3 className="text-lg font-bold text-yellow-400">{hobby.name}</h3>
+                  <h3 className="text-lg font-bold text-yellow-300/90">{hobby.name}</h3>
                   <p className="text-xs text-zinc-400">{hobby.status}</p>
                 </div>
               </div>
