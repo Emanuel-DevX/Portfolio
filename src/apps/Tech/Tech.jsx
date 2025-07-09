@@ -26,18 +26,24 @@ const Tech = function () {
             ))}
           </div>
         </div>
-     <div>
+        <div>
           <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
             <FaCode className="text-blue-400" />
             Complete Tech Stack
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {fullTechStack.map((tech) => ( <TechCard key={`stack-${tech.name}`} tech={tech} />
-            
+            {fullTechStack.map((tech) => (
+              <TechCard key={`stack-${tech.name}`} tech={tech} />
             ))}
           </div>
         </div>
-        
+
+        <div className="mt-16 text-center">
+          <p className="text-zinc-400 text-sm">
+            Always exploring new technologies and expanding my toolkit. Next up: PostgreSQL and modern backend
+            frameworks!
+          </p>
+        </div>
       </div>
     </>
   )

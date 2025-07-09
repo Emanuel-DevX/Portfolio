@@ -1,3 +1,6 @@
+import { FaHeart, FaCalendarAlt, FaLightbulb, FaCode } from 'react-icons/fa'
+import { techIcons } from './iconMap'
+
 const TechCard = function ({ tech }) {
   const getProficiencyColor = (proficiency) => {
     switch (proficiency) {
@@ -13,13 +16,14 @@ const TechCard = function ({ tech }) {
         return 'text-gray-400'
     }
   }
+  
   return (
     <div
-      key={tech.name}
+      
       className="bg-black/50 rounded-2xl p-6 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"
     >
       <div className="flex items-center gap-3 mb-4">
-        {tech.icon}
+        {techIcons[tech.name]}
         <div>
           <h3 className="text-lg font-bold text-yellow-400">{tech.name}</h3>
           <p className="text-xs text-zinc-400">{tech.category}</p>
@@ -61,12 +65,12 @@ const TechCard = function ({ tech }) {
 
 const FavTechCard = function ({ tech }) {
   return (
-    <div key={tech.name} className="bg-black/50 rounded-2xl p-6 relative border border-zinc-800">
+    <div className="bg-black/50 rounded-2xl p-6 relative border border-zinc-800">
       <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-red-600 text-black text-sm font-bold px-3 py-1 rounded-full">
         #{tech.rank}
       </div>
       <div className="flex items-center gap-4 mb-4">
-        {tech.icon}
+        {techIcons[tech.name]}
         <div>
           <h3 className="text-xl font-bold text-yellow-400">{tech.name}</h3>
           <p className="text-sm text-zinc-400">{tech.proficiency}</p>
@@ -81,4 +85,4 @@ const FavTechCard = function ({ tech }) {
   )
 }
 
-export default { TechCard, FavTechCard }
+export  { TechCard, FavTechCard }
