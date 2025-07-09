@@ -1,9 +1,8 @@
-import {TechCard, FavTechCard} from "./TechCard"
-import  {topTechnologies, fullTechStack} from "../../data/techstack"
-import { FaHeart } from "react-icons/fa"
+import { TechCard, FavTechCard } from './TechCard'
+import { topTechnologies, fullTechStack } from '../../data/techstack'
+import { FaHeart, FaCode } from 'react-icons/fa'
 
 const Tech = function () {
-  console.log(topTechnologies)
   return (
     <>
       <div>
@@ -17,19 +16,28 @@ const Tech = function () {
         </div>
 
         <div className="mb-16">
-          <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
-            <FaHeart className="text-red-400" />
-            
+          <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
+            <FaHeart className="text-red-600" />
             Current Favorites
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {topTechnologies.map(tech => (
-            
-                <FavTechCard tech={tech} />
-
+            {topTechnologies.map((tech) => (
+              <FavTechCard key={`top-${tech.name}`} tech={tech} />
             ))}
           </div>
         </div>
+     <div>
+          <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
+            <FaCode className="text-blue-400" />
+            Complete Tech Stack
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {fullTechStack.map((tech) => ( <TechCard key={`stack-${tech.name}`} tech={tech} />
+            
+            ))}
+          </div>
+        </div>
+        
       </div>
     </>
   )
