@@ -17,7 +17,7 @@ const projects = [
       'A portfolio that mimics a desktop OS. Users can explore different apps like Chat, Terminal, and Projects.',
     techStack: ['React', 'Tailwind CSS', 'Vite'],
     image: 'https://res.cloudinary.com/dbcdlkfty/image/upload/v1751948436/port_r5p04y.png',
-    github: 'https://github.com/Emanuel-DevX/emanuelmolla.dev',
+    github: 'https://github.com/Emanuel-DevX/Portfolio',
     url: 'https://emanuelmolla.dev',
     date: 'June 25 2025',
     role: 'Designer & Developer',
@@ -42,7 +42,7 @@ const projects = [
     techStack: ['React', 'Express', 'MongoDB', 'Prism.js', 'Tailwind CSS'],
     image:
       'https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    github: 'https://github.com/Emanuel-DevX/DevVault',
+    github: 'https://github.com/Emanuel-DevX/DevNest',
     date: 'July 2025',
     role: 'Solo Developer',
     isGroup: false,

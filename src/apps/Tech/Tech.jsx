@@ -10,12 +10,9 @@ const Tech = function () {
           <h1 className="text-2xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-orange-300 to-red-600 bg-clip-text text-transparent">
             My Tech Stack
           </h1>
-          <p className="text-sm text-zinc-300 max-w-2xl mx-auto">
-            The tools and technologies I use to build scalable web applications. Always learning, always growing.
-          </p>
         </div>
 
-        <div className="mb-16">
+        <div className="mb-8">
           <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
             <FaHeart className="text-red-600" />
             Current Favorites
@@ -27,7 +24,7 @@ const Tech = function () {
           </div>
         </div>
         <div>
-          <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
+          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
             <FaCode className="text-blue-400" />
             Complete Tech Stack
           </h2>

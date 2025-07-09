@@ -16,12 +16,9 @@ const TechCard = function ({ tech }) {
         return 'text-gray-400'
     }
   }
-  
+
   return (
-    <div
-      
-      className="bg-black/50 rounded-2xl p-6 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"
-    >
+    <div className="bg-black/50 rounded-2xl p-6 border border-zinc-800 hover:border-zinc-700 transition-all duration-300">
       <div className="flex items-center gap-3 mb-4">
         {techIcons[tech.name]}
         <div>
@@ -41,14 +38,16 @@ const TechCard = function ({ tech }) {
           <span className="text-zinc-300">Since {tech.firstEncounter}</span>
         </div>
 
-        <div>
-          <p className="text-zinc-400 mb-1">Learned at:</p>
-          <p className="text-zinc-300">{tech.learnedAt}</p>
+        <div className="flex gap-2 items-center">
+          <FaLightbulb className="text-yellow-400" />
+
+          <p className="text-zinc-400 mb-1 ">
+            Learned at: <span className="text-zinc-200">{tech.learnedAt} </span>
+          </p>
         </div>
 
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <FaLightbulb className="text-yellow-400" />
             <span className="text-zinc-400">What I love:</span>
           </div>
           <p className="text-zinc-300 text-xs">{tech.interestingFact}</p>
@@ -85,4 +84,4 @@ const FavTechCard = function ({ tech }) {
   )
 }
 
-export  { TechCard, FavTechCard }
+export { TechCard, FavTechCard }
