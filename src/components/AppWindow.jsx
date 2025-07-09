@@ -39,7 +39,7 @@ const AppWindow = ({ app, setActiveApp }) => {
           Close
         </button>
       </div>
-      <div className="p-4 flex1 overflow-y-auto overflow-auto scrollbar-hide  bg-zinc-900/90 backdrop-blur-lg">
+      <div className="p-4 flex1 h-full overflow-y-auto overflow-auto scrollbar-hide  bg-zinc-900/90 backdrop-blur-lg">
         <Component />
       </div>
       <style>

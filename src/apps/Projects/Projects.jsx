@@ -2,6 +2,7 @@ import { useState } from 'react'
 import ProjectFilterBar from './ProjectFilterBar'
 import projects from '../../data/projects'
 import ProjectCard from './ProjectCard'
+import FilterResetComponent from './FilterResetComponent'
 const Projects = function () {
   const [filters, setFilters] = useState({ sort: 'latest' })
   const [searchInput, setSearchInput] = useState('')
@@ -32,7 +33,11 @@ const Projects = function () {
       />
 
       <div className="flex flex-wrap gap-5 mt-2">
-        {sortedProjects && sortedProjects.map((project) => <ProjectCard project={project} />)}
+        {sortedProjects && sortedProjects.length > 0 ? (
+          sortedProjects.map((project) => <ProjectCard project={project} />)
+        ) : (
+          <FilterResetComponent setFilters={setFilters} setSearchInput={setSearchInput} />
+        )}
       </div>
     </>
   )
