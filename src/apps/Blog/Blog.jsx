@@ -1,6 +1,29 @@
 import BlogCard from "./BlogCard"
+import { useState, useEffect } from "react"
+const API_URL = import.meta.env.VITE_API_URL
+
 const Blog = function () {
-  const blogs = []
+  console.log(API_URL)
+  
+  const [blogs, setBlogs] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [like, setLike] = useState(0)
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await fetch(`${API_URL}/blogs`)
+        const data = await res.json()
+        setBlogs(data)
+      } catch (err) {
+        console.error('Failed to fetch blogs:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchBlogs()
+  }, [])
 
   return (
     <>
@@ -13,7 +36,7 @@ const Blog = function () {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogs.map((blog) => (
-              <BlogCard key={blog.id} blog={blog} />
+              <BlogCard key={blog.id} blog={blog} handleLikes={setLike}/>
             ))}
           </div>
         )}
