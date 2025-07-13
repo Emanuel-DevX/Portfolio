@@ -27,8 +27,23 @@ const BlogDetail = ({ slug: propSlug }) => {
       likedBlogs[slug] = true
     }
     localStorage.setItem('likedBlogs', JSON.stringify(likedBlogs))
+    const updateLike = async () => {
+      try {
+        const res = await fetch(`${API_URL}/blogs/${blog._id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ likes: likes }),
+        })
 
-  
+        const data = await res.json()
+        setLikes(data.blog.likes) // depends on what you return from the API
+      } catch (err) {
+        console.error('Failed to update like count:', err)
+      }
+    }
+    updateLike()
   }
 
   useEffect(() => {
