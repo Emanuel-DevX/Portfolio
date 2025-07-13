@@ -21,9 +21,12 @@ const appComponents = {
 const AppWindow = () => {
   const location = useLocation()
   const navigate = useNavigate()
-  const path = location.pathname
-
+  const path = Object.keys(appComponents).find((key) => pathStartsWith(location.pathname, key))
   const selectedApp = appComponents[path]
+
+  function pathStartsWith(current, base) {
+    return current === base || current.startsWith(base + '/')
+  }
 
   if (!selectedApp) return null
 

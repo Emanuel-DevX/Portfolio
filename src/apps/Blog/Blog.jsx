@@ -3,7 +3,6 @@ import { useState, useEffect } from "react"
 const API_URL = import.meta.env.VITE_API_URL
 
 const Blog = function () {
-  console.log(API_URL)
   
   const [blogs, setBlogs] = useState([])
   const [loading, setLoading] = useState(true)
