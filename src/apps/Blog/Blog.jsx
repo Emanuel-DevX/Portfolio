@@ -42,7 +42,7 @@ const Blog = function () {
         ) : (
           <div className="flex flex-wrap gap-4 ">
             {blogs.map((blog) => (
-              <BlogCard key={blog.id} blog={blog} />
+              <BlogCard key={blog.slug} blog={blog} />
             ))}
           </div>
         )}
