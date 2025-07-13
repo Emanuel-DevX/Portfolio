@@ -49,7 +49,7 @@ const BlogDetail = ({ slug: propSlug }) => {
     }
 
     fetchDetails()
-  }, [])
+  }, [slug])
 
   if (!blog) return null
 
@@ -74,7 +74,7 @@ const BlogDetail = ({ slug: propSlug }) => {
         Back to Blogs
       </Link>
 
-      <div className="w-full">
+      <div className="w-full mb-2">
         <img src={blog.image} alt={blog.title} className="w-full h-80 object-left object-cover rounded-xl" />
       </div>
 
@@ -89,7 +89,7 @@ const BlogDetail = ({ slug: propSlug }) => {
           <button
             onClick={handleLike}
             className={`flex items-center gap-1 transition-colors ${
-              isLiked ? 'text-red-500' : 'text-zinc-400 hover:text-red-500'
+              isLiked ? 'text-red-500 font-bold' : 'text-zinc-400 hover:text-red-500'
             }`}
           >
             <FaHeart className={isLiked ? 'text-red-500' : ''} />
