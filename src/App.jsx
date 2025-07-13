@@ -2,12 +2,10 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import AppLauncherNavbar from './components/Navbar'
 import AppWindow from './components/AppWindow'
 import Home from './components/Home'
-import BlogDetail from './apps/Blog/BlogDetail'
 function App() {
   const location = useLocation()
 
-  const isBlogPost = /^\/blog\/[^/]+$/.test(location.pathname)
-  const isWindowRoute = location.pathname !== '/' && !isBlogPost
+  const isWindowRoute = location.pathname !== '/'
   return (
     <>
       <div className="w-screen h-screen bg-gradient-to-b from-zinc-900 via-black to-zinc-900 text-white overflow-hidden relative">
@@ -23,7 +21,7 @@ function App() {
           <Route path="/tech" element={null} />
 
           <Route path="/blog" element={null} />
-          <Route path="/blog/:slug" element={<BlogDetail />} />
+          <Route path="/blog/:slug" element={<AppWindow />} />
         </Routes>
       </div>
     </>

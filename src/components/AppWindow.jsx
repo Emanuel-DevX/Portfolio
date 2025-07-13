@@ -7,6 +7,8 @@ import Projects from '../apps/Projects/Projects'
 import Tech from '../apps/Tech/Tech'
 import Me from '../apps/Me/Me'
 import Blog from '../apps/Blog/Blog'
+import BlogDetail from '../apps/Blog/BlogDetail'
+
 import Terminal from '../apps/Terminal/Terminal'
 
 const appComponents = {
@@ -21,12 +23,17 @@ const appComponents = {
 const AppWindow = () => {
   const location = useLocation()
   const navigate = useNavigate()
-  const path = Object.keys(appComponents).find((key) => pathStartsWith(location.pathname, key))
+  let path = Object.keys(appComponents).find((key) => pathStartsWith(location.pathname, key))
+
   const selectedApp = appComponents[path]
 
   function pathStartsWith(current, base) {
+    if (base === '/blog') {
+      return current === '/blog' || /^\/blog\/[^/]+$/.test(current)
+    }
     return current === base || current.startsWith(base + '/')
   }
+
 
   if (!selectedApp) return null
 

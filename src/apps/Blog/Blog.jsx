@@ -1,11 +1,15 @@
 import BlogCard from './BlogCard'
 import LoadingScreen from '../../components/LoadingScreen'
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import BlogDetail from './BlogDetail'
+
 const API_URL = import.meta.env.VITE_API_URL
 
 const Blog = function () {
   const [blogs, setBlogs] = useState([])
   const [loading, setLoading] = useState(true)
+  const { slug } = useParams()
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -22,6 +26,8 @@ const Blog = function () {
 
     fetchBlogs()
   }, [])
+
+  if (slug) return <BlogDetail slug={slug} />
 
   return (
     <>
