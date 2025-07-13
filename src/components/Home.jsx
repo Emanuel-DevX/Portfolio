@@ -26,6 +26,13 @@ const TypewriterText = ({ text, delay = 100 }) => {
 
 function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
+  useEffect(() => {
+    // Ping backend to wake it up
+    fetch(`${import.meta.env.VITE_API_URL}/ping`)
+      .then((res) => res.json())
+      .then((data) => console.log('Ping success:', data.message))
+      .catch((err) => console.error('Ping failed:', err))
+  }, [])
 
   useEffect(() => {
     setIsLoaded(true)
@@ -76,8 +83,8 @@ function Home() {
             </div>
 
             <p className="text-sm md:text-base text-zinc-300 leading-relaxed">
-              Building robust APIs and efficient data pipelines. Passionate about solving real-world
-              problems with <span className="text-yellow-400 font-semibold">clean code</span> and
+              Building robust APIs and efficient data pipelines. Passionate about solving real-world problems with{' '}
+              <span className="text-yellow-400 font-semibold">clean code</span> and
               <span className="text-red-400 font-semibold"> scalable systems</span>.
             </p>
 
