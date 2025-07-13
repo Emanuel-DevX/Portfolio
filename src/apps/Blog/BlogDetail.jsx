@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import LoadingScreen from '../../components/LoadingScreen'
+import { Link } from 'react-router-dom'
+import { FaHeart, FaEye, FaArrowLeft } from 'react-icons/fa'
 const API_URL = import.meta.env.VITE_API_URL
 
 const BlogDetail = ({ slug: propSlug }) => {
@@ -9,6 +11,26 @@ const BlogDetail = ({ slug: propSlug }) => {
   const [blog, setBlog] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
 
+  const [likes, setLikes] = useState(0)
+  const [isLiked, setIsLiked] = useState(false)
+
+  const handleLike = () => {
+    const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs') || '{}')
+
+    if (isLiked) {
+      setLikes(likes - 1)
+      setIsLiked(false)
+      delete likedBlogs[slug]
+    } else {
+      setLikes(likes + 1)
+      setIsLiked(true)
+      likedBlogs[slug] = true
+    }
+    localStorage.setItem('likedBlogs', JSON.stringify(likedBlogs))
+
+  
+  }
+
   useEffect(() => {
     const fetchDetails = async () => {
       try {
@@ -16,7 +38,11 @@ const BlogDetail = ({ slug: propSlug }) => {
         const data = await response.json()
 
         setBlog(data)
+        setLikes(data.likes)
         setIsLoaded(true)
+
+        const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs') || '{}')
+        setIsLiked(!!likedBlogs[slug])
       } catch (err) {
         console.log(err)
       }
@@ -26,6 +52,16 @@ const BlogDetail = ({ slug: propSlug }) => {
   }, [])
 
   if (!blog) return null
+
+  const parseContent = (text) => {
+    // Replace **text** with bold spans
+    let parsed = text.replace(/\*\*(.*?)\*\*/g, '<span class="font-bold text-yellow-400">$1</span>')
+
+    // Replace *text* with italic spans
+    parsed = parsed.replace(/\*(.*?)\*/g, '<span class="italic text-blue-400">$1</span>')
+
+    return parsed
+  }
 
   return isLoaded ? (
     <div className="text-white text-lg max-w-4xl mx-auto">
