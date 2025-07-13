@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import AppLauncherNavbar from './components/Navbar'
 import AppWindow from './components/AppWindow'
 import Home from './components/Home'
@@ -16,7 +16,7 @@ function App() {
           <Route path="/me" element={null} />
           <Route path="/projects" element={null} />
           <Route path="/chat" element={null} />
-          <Route path="/blog/:slug" element={<BlogDetail />} />
+          {/* <Route path="/blog/:slug" element={<BlogDetail />} /> */}
         </Routes>
       </div>
     </>
