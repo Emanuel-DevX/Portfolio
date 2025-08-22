@@ -3,6 +3,10 @@ import AppLauncherNavbar from './components/Navbar'
 import AppWindow from './components/AppWindow'
 import Home from './components/Home'
 import AdminLogin from './apps/Admin/Login'
+import AdminLayout from './apps/Admin/AdminLayout'
+import Dashboard from './apps/Admin/Dashboard'
+import Blogs from './apps/Admin/Blogs'
+import Messages from './apps/Admin/Messages'
 import { useEffect } from 'react'
 function App() {
   const location = useLocation()
@@ -38,7 +42,12 @@ function App() {
           <Route path="/blog" element={null} />
           <Route path="/blog/:slug" element={<AppWindow />} />
 
-          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="messages" element={<Messages />} />
+            <Route path="blogs" element={<Blogs />} />
+          </Route>
         </Routes>
       </div>
     </>
