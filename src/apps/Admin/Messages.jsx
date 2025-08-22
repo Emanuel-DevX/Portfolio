@@ -1,0 +1,67 @@
+import React, { useEffect, useState } from 'react'
+import { FaEnvelope, FaTrash } from 'react-icons/fa'
+
+const Messages = () => {
+  const [messages, setMessages] = useState([])
+
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const token = localStorage.getItem('adminToken')
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/messages`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        const data = await res.json()
+        setMessages(data.messages || [])
+      } catch (err) {
+        console.error('Error fetching messages:', err)
+      }
+    }
+    fetchMessages()
+  }, [])
+
+  const deleteMessage = async (id) => {
+    try {
+      const token = localStorage.getItem('adminToken')
+      await fetch(`${import.meta.env.VITE_API_URL}/messages/${id}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      setMessages((prev) => prev.filter((m) => m._id !== id))
+    } catch (err) {
+      console.error('Error deleting message:', err)
+    }
+  }
+
+  return (
+    <div className="bg-black/50 rounded-2xl p-8 border border-zinc-800">
+      <h3 className="text-2xl font-bold text-white mb-6 flex items-center space-x-2">
+        <FaEnvelope className="text-yellow-400" /> <span>Messages</span>
+      </h3>
+      {messages.length === 0 ? (
+        <p className="text-zinc-400">No messages found.</p>
+      ) : (
+        <ul className="space-y-4">
+          {messages.map((msg) => (
+            <li
+              key={msg._id}
+              className="p-4 bg-black/40 border border-zinc-700 rounded-lg flex justify-between items-start"
+            >
+              <div>
+                <p className="text-white font-semibold">
+                  {msg.name} ({msg.email})
+                </p>
+                <p className="text-zinc-400 mt-1">{msg.message}</p>
+              </div>
+              <button onClick={() => deleteMessage(msg._id)} className="text-red-400 hover:text-red-300 ml-4">
+                <FaTrash />
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )
+}
+
+export default Messages
