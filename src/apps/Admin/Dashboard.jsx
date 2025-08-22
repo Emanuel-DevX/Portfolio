@@ -16,7 +16,7 @@ const Dashboard = () => {
     const fetchStats = async () => {
       try {
         const token = localStorage.getItem('adminToken')
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/stats`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/dashboard/stats`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         const data = await res.json()
