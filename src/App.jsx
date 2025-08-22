@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import AppLauncherNavbar from './components/Navbar'
 import AppWindow from './components/AppWindow'
 import Home from './components/Home'
+import AdminLogin from './apps/Admin/Login'
 function App() {
   const location = useLocation()
 
@@ -22,6 +23,8 @@ function App() {
 
           <Route path="/blog" element={null} />
           <Route path="/blog/:slug" element={<AppWindow />} />
+
+          <Route path="/admin/login" element={<AdminLogin />} />
         </Routes>
       </div>
     </>
