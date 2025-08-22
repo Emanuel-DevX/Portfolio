@@ -1,10 +1,24 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import AppLauncherNavbar from './components/Navbar'
 import AppWindow from './components/AppWindow'
 import Home from './components/Home'
 import AdminLogin from './apps/Admin/Login'
+import { useEffect } from 'react'
 function App() {
   const location = useLocation()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Example: Shift + A
+      if (e.shiftKey && e.key.toLowerCase() === 'a') {
+        navigate('/admin')
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [navigate])
 
   const isWindowRoute = location.pathname !== '/'
   return (
