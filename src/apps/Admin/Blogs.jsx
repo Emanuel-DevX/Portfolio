@@ -12,7 +12,7 @@ const Blogs = () => {
           headers: { Authorization: `Bearer ${token}` },
         })
         const data = await res.json()
-        setBlogs(data.blogs || [])
+        setBlogs(data || [])
       } catch (err) {
         console.error('Error fetching blogs:', err)
       }
@@ -30,9 +30,8 @@ const Blogs = () => {
       ) : (
         <ul className="space-y-4">
           {blogs.map((blog) => (
-            <li key={blog._id} className="p-4 bg-black/40 border border-zinc-700 rounded-lg">
+            <li key={blog.slug} className="p-4 bg-black/40 border border-zinc-700 rounded-lg">
               <h4 className="text-white font-semibold">{blog.title}</h4>
-              <p className="text-zinc-400 mt-1">{blog.excerpt || blog.content.slice(0, 100) + '...'}</p>
             </li>
           ))}
         </ul>
