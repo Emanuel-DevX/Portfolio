@@ -32,8 +32,8 @@ const Contact = () => {
   // Load on mount
   useEffect(() => {
     if (conversation.length === 0 && step === 'intro') {
-      addMessage('kiya', "Hey 👋 I'm Kiya. Let's get to know each other.")
-      addMessage('kiya', "What's your name?")
+      addKiyaMessage("Hey 👋 I'm Emanuel. Let's get to know each other.", 1000)
+      setTimeout(() => addKiyaMessage("What's your name?", 1200), 2000)
       setStep('name')
     }
   }, [])
@@ -50,6 +50,16 @@ const Contact = () => {
   const addMessage = (from, text) => {
     setConversation((prev) => [...prev, { from, text }])
   }
+  const addKiyaMessage = (text, delay = 500) => {
+    setConversation((prev) => [...prev, { from: 'kiya', text: '...' }]) // typing indicator
+    setTimeout(() => {
+      setConversation((prev) => {
+        const copy = [...prev]
+        copy[copy.length - 1] = { from: 'kiya', text } // replace "..." with real msg
+        return copy
+      })
+    }, delay)
+  }
 
   const handleSubmit = async () => {
     try {
@@ -60,17 +70,17 @@ const Contact = () => {
       })
       if (res.ok) {
         if (formData.consent === 'yes') {
-          addMessage('kiya', '✅ Your message has reached me. I’ll get back to you soon.')
+          addKiyaMessage('✅ Your message has reached me. I’ll get back to you soon.')
         } else {
-          addMessage('kiya', '✅ Your message has reached me. Thanks for reaching out!')
+          addKiyaMessage('✅ Your message has reached me. Thanks for reaching out!')
         }
         setIsSubmitted(true)
       } else {
-        addMessage('kiya', '⚠️ Oops! Something went wrong. Please try again.')
+        addKiyaMessage('⚠️ Oops! Something went wrong. Please try again.')
       }
     } catch (err) {
       console.error(err)
-      addMessage('kiya', '⚠️ Network error, please try again later.')
+      addKiyaMessage('⚠️ Network error, please try again later.')
     }
   }
 
@@ -81,15 +91,15 @@ const Contact = () => {
 
     if (step === 'name') {
       setFormData((f) => ({ ...f, name: userMessage }))
-      addMessage('kiya', `Nice to meet you, ${userMessage}! What’s your email?`)
+      addKiyaMessage(`Nice to meet you, ${userMessage}! What’s your email?`)
       setStep('email')
     } else if (step === 'email') {
       setFormData((f) => ({ ...f, email: userMessage }))
-      addMessage('kiya', 'Got it. What message would you like to send me?')
+      addKiyaMessage('Got it. What message would you like to send me?')
       setStep('message')
     } else if (step === 'message') {
       setFormData((f) => ({ ...f, message: userMessage }))
-      addMessage('kiya', 'Thanks! Do you want me to contact you back? (yes/no)')
+      addKiyaMessage('Thanks! Do you want me to contact you back? (yes/no)')
       setStep('consent')
     } else if (step === 'consent') {
       setFormData((f) => ({ ...f, consent: userMessage.toLowerCase() }))
@@ -101,7 +111,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="flex flex-col h-full w-full  relative">
+    <div className="flex flex-col h-full pt-2  relative">
       {/* Conversation */}
       <div className="flex-1 flex flex-col mb-6">
         {conversation.map((msg, i) => (
@@ -112,7 +122,7 @@ const Contact = () => {
 
       {/* Input box */}
 
-      <div className="sticky mx-auto bottom-0 w-[95%]  flex gap-2 mt-2">
+      <div className="sticky mx-auto bottom-0 md:w-[90%]  flex gap-2 mt-2">
         <input
           type="text"
           disabled={isSubmitted || step === 'done'}
