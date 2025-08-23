@@ -43,14 +43,8 @@ const AdminLayout = () => {
   const isLoginPage = location.pathname === '/admin/login'
 
   return (
-    <div className="min-h-screen bg-black">
-      {/* Background Effects */}
-      {!isLoginPage && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-yellow-400/5 via-orange-300/5 to-red-600/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/5 via-purple-500/5 to-pink-600/5 rounded-full blur-3xl"></div>
-        </div>
-      )}
+    <div className="overflow-scroll h-screen pb-15">
+
 
       {/* Header */}
       {!isLoginPage && (
@@ -69,7 +63,7 @@ const AdminLayout = () => {
             </div>
 
             {/* Navigation */}
-            <nav className="flex items-center md:space-x-6 flex-wrap gap-4 justify-center">
+            <nav className="flex items-center md:space-x-6 text-sm md:text-base p-2 flex-wrap gap-4 justify-center">
               <div className="flex items-center space-x-2">
                 <NavButton to="/admin" icon={FaHome}>
                   Dashboard
@@ -96,7 +90,7 @@ const AdminLayout = () => {
       )}
 
       {/* Main Content */}
-      <div className="relative max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-6 py-8 overflow-auto">
         <Outlet />
       </div>
     </div>
