@@ -25,8 +25,7 @@ const projects = [
   },
   {
     title: 'Scholiast',
-    description:
-      'A student productivity platform with flashcards, resource management, and weekly goal tracking.',
+    description: 'A student productivity platform with flashcards, resource management, and weekly goal tracking.',
     techStack: ['React', 'Express', 'MongoDB', 'Auth0', 'Gemini API', 'Tailwind CSS'],
     image: 'https://res.cloudinary.com/dbcdlkfty/image/upload/v1751948132/scholiast_fqni1l.png',
     github: 'https://github.com/Emanuel-DevX/Scholiast',
@@ -37,11 +36,10 @@ const projects = [
   },
   {
     title: 'DevNest',
-    description:
-      'Task + notes + sprint planner with Markdown and Prism syntax highlighting. Built for dev teams.',
-    techStack: ['React', 'Express', 'MongoDB', 'Prism.js', 'Tailwind CSS'],
-    image:
-      'https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'Task + notes + sprint planner with Markdown syntax highlighting. Built for dev teams.',
+    techStack: ['React', 'Express', 'MongoDB', 'Gemini ', 'Tailwind CSS'],
+
+    image: 'https://res.cloudinary.com/dbcdlkfty/image/upload/v1755926825/DevNestLanding_falgbg.png',
     github: 'https://github.com/Emanuel-DevX/DevNest',
     date: 'July 2025',
     role: 'Solo Developer',
@@ -50,3 +48,8 @@ const projects = [
 ]
 
 export default projects
+
+const commingSoon = {
+  image:
+    'https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+}
