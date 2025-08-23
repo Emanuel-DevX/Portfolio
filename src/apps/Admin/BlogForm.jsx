@@ -4,12 +4,16 @@ const BlogForm = ({ blog, onSuccess, onCancel }) => {
   const [title, setTitle] = useState('')
   const [slug, setSlug] = useState('')
   const [content, setContent] = useState([''])
-
+  const [image, setImage] = useState('')
+  const [published, setPublished] = useState(false)
   useEffect(() => {
     if (blog) {
       setTitle(blog.title || '')
       setSlug(blog.slug || '')
       setContent(blog.content && blog.content.length ? blog.content : [''])
+
+      setImage(blog.image || '')
+      setPublished(blog.published || false)
     }
   }, [blog])
 
@@ -34,13 +38,18 @@ const BlogForm = ({ blog, onSuccess, onCancel }) => {
       const method = blog ? 'PUT' : 'POST'
       const url = blog ? `${import.meta.env.VITE_API_URL}/blogs/${blog._id}` : `${import.meta.env.VITE_API_URL}/blogs`
 
+      const cleanedContent = content.map((p) => p.trim()).filter((p) => p.length > 0)
+      if (!(title && cleanedContent.length && image && published !== undefined)) {
+        alert('Title, content, image, and published status are required')
+        return
+      }
       const res = await fetch(url, {
         method,
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ title, slug, content }),
+        body: JSON.stringify({ title, slug, content: cleanedContent, image, published }),
       })
 
       if (!res.ok) {
@@ -58,8 +67,25 @@ const BlogForm = ({ blog, onSuccess, onCancel }) => {
     <div className="fixed top-0 left-0 z-50 bg-black/95 h-screen w-screen flex items-center justify-center">
       <form
         onSubmit={handleSubmit}
-        className="space-y-6 bg-black/50 p-6 rounded-xl border border-zinc-800 overflow-y-scroll custom-scrollbar max-h-screen w-3xl"
+        className="space-y-6 bg-black/50 p-6 rounded-xl border border-zinc-800 overflow-y-scroll custom-scrollbar max-h-[90vh] w-3xl relative"
       >
+        {/* Published Toggle */}
+        <div className="flex items-center space-x-3 absolute right-2 top-2">
+          <label className="text-sm text-zinc-300">Published</label>
+          <button
+            type="button"
+            onClick={() => setPublished(!published)}
+            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 ${
+              published ? 'bg-gradient-to-r from-yellow-400 to-red-500' : 'bg-zinc-700'
+            }`}
+          >
+            <span
+              className={`inline-block h-4 w-4 transform rounded-full bg-white shadow-lg transition-transform duration-200 ${
+                published ? 'translate-x-6' : 'translate-x-1'
+              }`}
+            />
+          </button>
+        </div>
         {/* Title */}
         <div>
           <label className="block text-sm text-zinc-300 mb-2">Title</label>
@@ -82,6 +108,19 @@ const BlogForm = ({ blog, onSuccess, onCancel }) => {
             onChange={(e) => setSlug(e.target.value)}
             className="w-full px-3 py-2 rounded-lg bg-black/40 border border-zinc-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
             placeholder="my-first-blog"
+            required
+          />
+        </div>
+
+        {/* Image URL */}
+        <div>
+          <label className="block text-sm text-zinc-300 mb-2">Image URL</label>
+          <input
+            type="url"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            className="w-full px-3 py-2 rounded-lg bg-black/40 border border-zinc-700 text-white"
+            placeholder="https://example.com/image.jpg"
             required
           />
         </div>
