@@ -14,7 +14,7 @@ const Blog = function () {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch(`${API_URL}/blogs`)
+        const res = await fetch(`${API_URL}/blogs/public`)
         const data = await res.json()
         setBlogs(data)
       } catch (err) {
