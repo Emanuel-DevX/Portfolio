@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { FaComments, FaLaptopCode, FaTerminal, FaUser, FaCode, FaBlog } from 'react-icons/fa'
 import './appWindow.css'
 
-import Chat from '../apps/Chat/Chat'
+import Contact from '../apps/Contact/Contact'
 import Projects from '../apps/Projects/Projects'
 import Tech from '../apps/Tech/Tech'
 import Me from '../apps/Me/Me'
@@ -16,7 +16,7 @@ const appComponents = {
   '/tech': { name: 'Tech', icon: FaCode, component: Tech },
   '/me': { name: 'Me', icon: FaUser, component: Me },
   '/blog': { name: 'Blog', icon: FaBlog, component: Blog },
-  '/chat': { name: 'Chat', icon: FaComments, component: Chat },
+  '/contact': { name: 'Contact', icon: FaComments, component: Contact },
   '/terminal': { name: 'Terminal', icon: FaTerminal, component: Terminal },
 }
 
@@ -33,7 +33,6 @@ const AppWindow = () => {
     }
     return current === base || current.startsWith(base + '/')
   }
-
 
   if (!selectedApp) return null
 
