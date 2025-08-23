@@ -10,7 +10,7 @@ const AppLauncherNavbar = () => {
     { name: 'Tech', icon: FaCode },
     { name: 'Me', icon: FaUser },
     { name: 'Blog', icon: FaBlog },
-    { name: 'Chat', icon: FaComments },
+    { name: 'Contact', icon: FaComments },
     { name: 'Terminal', icon: FaTerminal },
   ]
   const appRoutes = {
@@ -18,7 +18,7 @@ const AppLauncherNavbar = () => {
     Tech: '/tech',
     Me: '/me',
     Blog: '/blog',
-    Chat: '/chat',
+    Contact: '/contact',
     Terminal: '/terminal',
   }
 
