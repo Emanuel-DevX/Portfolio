@@ -9,7 +9,7 @@ const AppLauncherNavbar = () => {
     { name: 'Me', icon: FaUser },
     { name: 'Blog', icon: FaBlog },
     { name: 'Contact', icon: FaCommentDots },
-    { name: 'Terminal', icon: FaTerminal },
+    // { name: 'Terminal', icon: FaTerminal },
   ]
   const appRoutes = {
     Projects: '/projects',
