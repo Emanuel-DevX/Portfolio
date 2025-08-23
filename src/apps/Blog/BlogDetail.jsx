@@ -17,28 +17,30 @@ const BlogDetail = ({ slug: propSlug }) => {
   const handleLike = () => {
     const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs') || '{}')
 
-    if (isLiked) {
-      setLikes(likes - 1)
-      setIsLiked(false)
-      delete likedBlogs[slug]
-    } else {
-      setLikes(likes + 1)
-      setIsLiked(true)
+    const newIsLiked = !isLiked
+    setIsLiked(newIsLiked)
+
+    let newLikes = likes
+    if (newIsLiked) {
+      newLikes = likes + 1
       likedBlogs[slug] = true
+    } else {
+      newLikes = likes - 1
+      delete likedBlogs[slug]
     }
+    setLikes(newLikes)
     localStorage.setItem('likedBlogs', JSON.stringify(likedBlogs))
+
     const updateLike = async () => {
       try {
-        const res = await fetch(`${API_URL}/blogs/${blog._id}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ likes: likes }),
+        const res = await fetch(`${API_URL}/blogs/${blog._id}/likes`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: newIsLiked ? 'like' : 'unlike' }), // ✅ use newIsLiked
         })
 
         const data = await res.json()
-        setLikes(data.blog.likes) // depends on what you return from the API
+        setLikes(data.likes) // backend is source of truth
       } catch (err) {
         console.error('Failed to update like count:', err)
       }
@@ -49,7 +51,7 @@ const BlogDetail = ({ slug: propSlug }) => {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const response = await fetch(`${API_URL}/Blogs/${slug}`)
+        const response = await fetch(`${API_URL}/Blogs/slug/${slug}`)
         const data = await response.json()
 
         setBlog(data)
