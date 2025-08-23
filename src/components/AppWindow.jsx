@@ -53,7 +53,7 @@ const AppWindow = () => {
           Close
         </button>
       </div>
-      <div className="p-4 flex1 h-full overflow-y-auto overflow-auto custom-scrollbar  bg-zinc-900/90 backdrop-blur-lg">
+      <div className="md:p-4 p-1 flex1 h-full overflow-y-auto overflow-auto custom-scrollbar  bg-zinc-900/90 backdrop-blur-lg">
         <div className='h-full'>{<Component  /> || <p className="text-gray-500">Unknown app.</p>}</div>
       </div>
     </div>
