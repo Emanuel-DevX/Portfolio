@@ -1,7 +1,7 @@
 import BlogCard from './BlogCard'
 import LoadingScreen from '../../components/LoadingScreen'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import BlogDetail from './BlogDetail'
 
 const API_URL = import.meta.env.VITE_API_URL
@@ -10,24 +10,25 @@ const Blog = function () {
   const [blogs, setBlogs] = useState([])
   const [loading, setLoading] = useState(true)
   const { slug } = useParams()
+  const location = useLocation()
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const res = await fetch(`${API_URL}/blogs/public`)
-        const data = await res.json()
-        setBlogs(data)
-      } catch (err) {
-        console.error('Failed to fetch blogs:', err)
-      } finally {
-        setLoading(false)
-      }
+  const fetchBlogs = async () => {
+    try {
+      setLoading(true)
+      const res = await fetch(`${API_URL}/blogs/public`)
+      const data = await res.json()
+      setBlogs(data)
+    } catch (err) {
+      console.error('Failed to fetch blogs:', err)
+    } finally {
+      setLoading(false)
     }
-
+  }
+  useEffect(() => {
     fetchBlogs()
-  }, [])
+  }, [location.pathname])
 
-  if (slug) return <BlogDetail slug={slug} />
+  if (slug) return <BlogDetail slug={slug} refreshBlogList={fetchBlogs} />
 
   return (
     <>

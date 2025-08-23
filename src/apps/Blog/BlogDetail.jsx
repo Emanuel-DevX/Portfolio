@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { FaHeart, FaEye, FaArrowLeft } from 'react-icons/fa'
 const API_URL = import.meta.env.VITE_API_URL
 
-const BlogDetail = ({ slug: propSlug }) => {
+const BlogDetail = ({ slug: propSlug, refreshBlogList }) => {
   const params = useParams()
   const slug = propSlug || params.slug
   const [blog, setBlog] = useState(null)
@@ -36,11 +36,12 @@ const BlogDetail = ({ slug: propSlug }) => {
         const res = await fetch(`${API_URL}/blogs/${blog._id}/likes`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action: newIsLiked ? 'like' : 'unlike' }), // ✅ use newIsLiked
+          body: JSON.stringify({ action: newIsLiked ? 'like' : 'unlike' }), // use newIsLiked
         })
 
         const data = await res.json()
-        setLikes(data.likes) // backend is source of truth
+        setLikes(data.likes)
+        if (refreshBlogList) refreshBlogList()
       } catch (err) {
         console.error('Failed to update like count:', err)
       }
