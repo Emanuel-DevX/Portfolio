@@ -34,7 +34,7 @@ const Messages = () => {
   }
 
   return (
-    <div className="bg-black/50 rounded-2xl p-8 border border-zinc-800">
+    <div className="bg-black/50 rounded-2xl p-8 border border-zinc-800 overflow-auto h-full">
       <h3 className="text-2xl font-bold text-white mb-6 flex items-center space-x-2">
         <FaEnvelope className="text-yellow-400" /> <span>Messages</span>
       </h3>
@@ -45,15 +45,15 @@ const Messages = () => {
           {messages.map((msg) => (
             <li
               key={msg._id}
-              className="p-4 bg-black/40 border border-zinc-700 rounded-lg flex justify-between items-start"
+              className="p-4 relative bg-black/40 border border-zinc-700 rounded-lg flex justify-between items-start"
             >
-              <div>
-                <p className="text-white font-semibold">
+              <div className='flex-1 w-full '>
+                <p className="text-white  font-semibold">
                   {msg.name} ({msg.email})
                 </p>
-                <p className="text-zinc-400 mt-1">{msg.message}</p>
+                <p className="text-zinc-400 mt-1 break-words whitespace-pre-wrap   ">{msg.message}</p>
               </div>
-              <button onClick={() => deleteMessage(msg._id)} className="text-red-400 hover:text-red-300 ml-4">
+              <button onClick={() => deleteMessage(msg._id)} className="text-red-400 hover:text-red-300 ml-4 absolute right-2">
                 <FaTrash />
               </button>
             </li>
