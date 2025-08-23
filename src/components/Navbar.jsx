@@ -1,14 +1,14 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import { FaComments, FaLaptopCode, FaTerminal, FaUser, FaCode, FaBlog } from 'react-icons/fa'
+import {  FaLaptopCode, FaTerminal, FaUser, FaCode, FaBlog, FaCommentDots } from 'react-icons/fa'
 const AppLauncherNavbar = () => {
   const apps = [
     { name: 'Projects', icon: FaLaptopCode },
     { name: 'Tech', icon: FaCode },
     { name: 'Me', icon: FaUser },
     { name: 'Blog', icon: FaBlog },
-    { name: 'Contact', icon: FaComments },
+    { name: 'Contact', icon: FaCommentDots },
     { name: 'Terminal', icon: FaTerminal },
   ]
   const appRoutes = {
