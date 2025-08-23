@@ -43,7 +43,7 @@ const AdminLayout = () => {
   const isLoginPage = location.pathname === '/admin/login'
 
   return (
-    <div className="overflow-scroll h-screen pb-15">
+    <div className="h-screen overflow-y-scroll custom-scrollbar pb-15">
 
 
       {/* Header */}

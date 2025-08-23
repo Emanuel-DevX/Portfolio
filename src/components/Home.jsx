@@ -78,12 +78,12 @@ function Home() {
                 </span>
               </h1>
               <h2 className="text-lg md:text-2xl text-zinc-300 font-medium">
-                <TypewriterText text="Backend Developer · Data Engineer" delay={80} />
+                <TypewriterText text="Fullstack Developer · Backend Enthusiast" delay={80} />
               </h2>
             </div>
 
             <p className="text-sm md:text-base text-zinc-300 leading-relaxed">
-              Building robust APIs and efficient data pipelines. Passionate about solving real-world problems with{' '}
+              Building robust RESTful APIs. Passionate about solving real-world problems with{' '}
               <span className="text-yellow-400 font-semibold">clean code</span> and
               <span className="text-red-400 font-semibold"> scalable systems</span>.
             </p>

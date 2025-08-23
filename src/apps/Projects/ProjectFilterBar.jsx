@@ -8,10 +8,10 @@ const ProjectFilterBar = function ({ searchInput, setSearchInput, filters, setFi
   const techOptions = [
     { value: '', label: 'All Tech', icon: Globe },
     { value: 'React', label: 'React', icon: Code },
-    { value: 'Node', label: 'Node.js', icon: Zap },
+    { value: 'Node.js', label: 'Node.js', icon: Zap },
     { value: 'MongoDB', label: 'MongoDB', icon: Database },
     { value: 'Python', label: 'Python', icon: Code },
-    { value: 'JavaScript', label: 'JavaScript', icon: Code },
+    { value: 'js', label: 'JavaScript', icon: Code },
   ]
 
   const sortOptions = [

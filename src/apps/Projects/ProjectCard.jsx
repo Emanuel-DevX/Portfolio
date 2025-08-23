@@ -37,8 +37,8 @@ const ProjectCard = function ({ project }) {
             <p className="text-sm">{project.description}</p>
             <div className="flex text-sm gap-2 flex-wrap mt-2 text-zinc-200">
               {project.techStack &&
-                project.techStack.map((tech) => (
-                  <div className="border max-h-8 text-nowrap py-[1px] px-2 rounded-xl border-amber-400/30 ">
+                project.techStack.map((tech, index) => (
+                  <div key={`tech-${index}`} className="border max-h-8 text-nowrap py-[1px] px-2 rounded-xl border-amber-400/30 ">
                     {tech}
                   </div>
                 ))}

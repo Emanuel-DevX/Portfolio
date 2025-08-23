@@ -14,7 +14,7 @@ const projects = [
   {
     title: 'Portfolio Desktop Site',
     description:
-      'A portfolio that mimics a desktop OS. Users can explore different apps like Chat, Terminal, and Projects.',
+      'A portfolio that mimics a desktop OS. Users can explore different apps like Contact, Blog and Projects.',
     techStack: ['React', 'Tailwind CSS', 'Vite'],
     image: 'https://res.cloudinary.com/dbcdlkfty/image/upload/v1751948436/port_r5p04y.png',
     github: 'https://github.com/Emanuel-DevX/Portfolio',
@@ -26,7 +26,7 @@ const projects = [
   {
     title: 'Scholiast',
     description: 'A student productivity platform with flashcards, resource management, and weekly goal tracking.',
-    techStack: ['React', 'Express', 'MongoDB', 'Auth0', 'Gemini API', 'Tailwind CSS'],
+    techStack: ['React', 'Express', 'Node.js', 'MongoDB', 'Auth0', 'Gemini API', 'Tailwind CSS'],
     image: 'https://res.cloudinary.com/dbcdlkfty/image/upload/v1751948132/scholiast_fqni1l.png',
     github: 'https://github.com/Emanuel-DevX/Scholiast',
     url: 'https://sholiast.webios.link',
@@ -36,11 +36,14 @@ const projects = [
   },
   {
     title: 'DevNest',
-    description: 'Task + notes + sprint planner with Markdown syntax highlighting. Built for dev teams.',
-    techStack: ['React', 'Express', 'MongoDB', 'Gemini ', 'Tailwind CSS'],
+    description:
+      'A sprint-based project management app with task tracking, notes, and goals. Uses Gemini API to auto-generate sprint tasks and feature plans.',
+    techStack: ['React', 'Express', 'MongoDB', 'Gemini API', 'JWT', 'Auth0', 'Node.js', 'Tailwind CSS'],
 
     image: 'https://res.cloudinary.com/dbcdlkfty/image/upload/v1755926825/DevNestLanding_falgbg.png',
     github: 'https://github.com/Emanuel-DevX/DevNest',
+    url: 'https://devnest.molla.dev',
+
     date: 'July 2025',
     role: 'Solo Developer',
     isGroup: false,

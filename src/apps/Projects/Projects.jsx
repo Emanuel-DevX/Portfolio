@@ -34,7 +34,7 @@ const Projects = function () {
 
       <div className="flex flex-wrap gap-5 mt-2">
         {sortedProjects && sortedProjects.length > 0 ? (
-          sortedProjects.map((project) => <ProjectCard project={project} />)
+          sortedProjects.map((project, index) => <ProjectCard key={`${index}-${project.title}`} project={project} />)
         ) : (
           <FilterResetComponent setFilters={setFilters} setSearchInput={setSearchInput} />
         )}
