@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { FaBlog } from 'react-icons/fa'
 import BlogForm from './BlogForm'
-import { PlusCircle } from 'lucide-react'
+import { Edit, PlusCircle } from 'lucide-react'
+
 const Blogs = () => {
   const [blogs, setBlogs] = useState([])
   const [showBlogForm, setShowBlogForm] = useState(false)
@@ -22,6 +23,21 @@ const Blogs = () => {
     }
     fetchBlogs()
   }, [])
+  const handleEdit = async (id) => {
+    try {
+      const token = localStorage.getItem('adminToken')
+
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/blogs/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      const blog = await res.json()
+      console.log(blog)
+      setSelectedBlog(blog)
+      setShowBlogForm(true)
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
 
   return (
     <>
@@ -46,14 +62,36 @@ const Blogs = () => {
         ) : (
           <ul className="space-y-4">
             {blogs.map((blog) => (
-              <li key={blog.slug} className="p-4 bg-black/40 border border-zinc-700 rounded-lg">
+              <li
+                key={blog.slug}
+                className="p-4 bg-black/40 border border-zinc-700 rounded-lg justify-between flex items-center"
+              >
                 <h4 className="text-white font-semibold">{blog.title}</h4>
+                <button
+                  onClick={() => handleEdit(blog._id)}
+                  className="flex gap-1 cursor-pointer text-sm items-center font-bold"
+                >
+                  <Edit className="w-4 text-yellow-400" /> Edit
+                </button>
               </li>
             ))}
           </ul>
         )}
       </div>
-      {showBlogForm && <BlogForm blog={selectedBlog} onSuccess={(data) => console.log('Blog updated:', data)} onCancel={()=>setShowBlogForm(false)}/>}
+      {showBlogForm && (
+        <BlogForm
+          blog={selectedBlog}
+          onSuccess={(data) => {
+            console.log('Blog updated:', data)
+            setShowBlogForm(false)
+            setSelectedBlog(null)
+          }}
+          onCancel={() => {
+            setShowBlogForm(false)
+            setSelectedBlog(null)
+          }}
+        />
+      )}
     </>
   )
 }
