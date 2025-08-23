@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-// AppLauncherNavbar.jsx
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
@@ -42,7 +40,7 @@ const AppLauncherNavbar = () => {
             <button
               key={name}
               onClick={() => {
-                if (isActive) navigate("/")
+                if (isActive) navigate('/')
                 else navigate(route)
               }}
               className={`flex flex-col sm:flex-row items-center gap-1 sm:gap-2 px-3 py-1 md:py-2 rounded-md transition-transform duration-200 hover:scale-105 ${
