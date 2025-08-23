@@ -49,7 +49,7 @@ function App() {
           <Route path="/" element={null} />
           <Route path="/me" element={null} />
           <Route path="/projects" element={null} />
-          <Route path="/chat" element={null} />
+          <Route path="/contact" element={null} />
           <Route path="/terminal" element={null} />
           <Route path="/tech" element={null} />
 
