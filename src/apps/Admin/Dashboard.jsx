@@ -21,7 +21,15 @@ const Dashboard = () => {
         })
         const data = await res.json()
         setStats(data.stats)
-        setVisitData(data.visits)
+        const transformed = data.visits.map((v) => {
+          const localDate = new Date(v.date) // v.date is UTC from backend
+          return {
+            ...v,
+            day: localDate.toLocaleDateString('en-US', { weekday: 'short' }),
+            date: localDate.toLocaleDateString('en-CA'), // YYYY-MM-DD in user’s timezone
+          }
+        })
+        setVisitData(transformed)
       } catch (err) {
         console.error('Failed to load stats:', err)
       }

@@ -23,6 +23,20 @@ function App() {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [navigate])
+  useEffect(() => {
+    const recordVisit = async () => {
+      try {
+        await fetch(`${import.meta.env.VITE_API_URL}/dashboard/visits`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+        })
+      } catch (err) {
+        console.error('Failed to record visit:', err)
+      }
+    }
+
+    recordVisit()
+  }, [])
 
   const isWindowRoute = location.pathname !== '/'
   return (
