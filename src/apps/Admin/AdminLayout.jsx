@@ -4,6 +4,7 @@ import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { FaHome, FaBlog, FaEnvelope, FaUsers, FaSignOutAlt } from 'react-icons/fa'
 
 const AdminLayout = () => {
+
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -54,7 +55,7 @@ const AdminLayout = () => {
       {/* Header */}
       {!isLoginPage && (
         <header className="relative bg-black/30 backdrop-blur-xl border-b border-zinc-800 px-6 py-4">
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="max-w-7xl mx-auto flex items-center justify-between flex-col md:flex-row">
             {/* Logo/Brand */}
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 via-orange-300 to-red-600 rounded-xl flex items-center justify-center">
@@ -68,7 +69,7 @@ const AdminLayout = () => {
             </div>
 
             {/* Navigation */}
-            <nav className="flex items-center space-x-6">
+            <nav className="flex items-center md:space-x-6 flex-wrap gap-4 justify-center">
               <div className="flex items-center space-x-2">
                 <NavButton to="/admin" icon={FaHome}>
                   Dashboard
