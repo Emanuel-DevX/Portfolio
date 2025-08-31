@@ -30,7 +30,7 @@ const ContactCard = () => {
         </a>
 
         <a
-          href="https://linkedin.com/in/emanuelmolla"
+          href="https://linkedin.com/in/emanuel-molla"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 p-3 rounded-xl bg-black/30 hover:bg-black/50 border border-zinc-800 hover:border-zinc-700 transition-all duration-200 group"
@@ -40,7 +40,7 @@ const ContactCard = () => {
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-xs text-zinc-500 uppercase tracking-wide">LinkedIn</p>
-            <p className="text-zinc-300 text-sm truncate">emanuelmolla</p>
+            <p className="text-zinc-300 text-sm truncate">emanuel-molla</p>
           </div>
         </a>
 
