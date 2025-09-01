@@ -92,7 +92,7 @@ function Home() {
             <div className="grid grid-cols-3 gap-4 py-4">
               <div className="text-center p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
                 <div className="text-2xl font-bold text-yellow-400">3+</div>
-                <div className="text-xs text-zinc-400">Years Experience</div>
+                <div className="text-xs text-zinc-400">Years Coding</div>
               </div>
               <div className="text-center p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
                 <div className="text-2xl font-bold text-orange-400">IBM</div>
