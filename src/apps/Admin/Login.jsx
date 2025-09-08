@@ -58,7 +58,7 @@ const AdminLogin = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center px-6 py-12">
+    <div className="min-h-screen bg-black fixed w-screen left-0 top-0 flex items-center justify-center px-6 py-12">
       {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-yellow-400/10 via-orange-300/10 to-red-600/10 rounded-full blur-3xl"></div>
