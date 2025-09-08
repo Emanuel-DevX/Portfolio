@@ -48,7 +48,7 @@ const Messages = () => {
               className="md:p-4 p-2 relative bg-black/40 border border-zinc-700 rounded-lg flex justify-between items-start"
             >
               <div className="flex-1 w-full ">
-                <p className="font-extrabold text-xl ">
+                <p className="font-bold text-lg ">
                   {msg.name} ({msg.email})
                 </p>
                 <div className='flex gap-2 text-xs'>
