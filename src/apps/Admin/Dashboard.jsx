@@ -22,12 +22,14 @@ const Dashboard = () => {
         const data = await res.json()
         setStats(data.stats)
         const transformed = data.visits.map((v) => {
-          const localDate = new Date(v.date) // v.date is UTC from backend
-          return {
-            ...v,
-            day: localDate.toLocaleDateString('en-US', { weekday: 'short' }),
-            date: localDate.toLocaleDateString('en-CA'), // YYYY-MM-DD in user’s timezone
-          }
+           const [y, m, d] = v.date.split('-').map(Number)
+           const localDate = new Date(y, m - 1, d) // local midnight
+
+           return {
+             ...v,
+             day: localDate.toLocaleDateString('en-US', { weekday: 'short' }),
+             date: localDate.toLocaleDateString('en-CA'), // YYYY-MM-DD in local tz
+           }
         })
         setVisitData(transformed)
       } catch (err) {

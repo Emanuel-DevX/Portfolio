@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { FaHome, FaBlog, FaEnvelope, FaUsers, FaSignOutAlt } from 'react-icons/fa'
