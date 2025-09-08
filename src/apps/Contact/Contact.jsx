@@ -62,19 +62,19 @@ const Contact = () => {
     }, delay)
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (payload) => {
     try {
       const res = await fetch(`${API_URL}/messages`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload ?? formData),
       })
       if (res.ok) {
-        if (formData.consent === 'yes') {
-          addKiyaMessage('✅ Your message has reached me. I’ll get back to you soon.')
-        } else {
-          addKiyaMessage('✅ Your message has reached me. Thanks for reaching out!')
-        }
+        const yes = new Set(['y', 'yes', 'yeah', 'yep', 'true', '1'])
+        const msg = yes.has((payload?.consent ?? formData.consent).trim().toLowerCase())
+          ? '✅ Your message has reached me. I’ll get back to you soon.'
+          : '✅ Your message has reached me. Thanks for reaching out!'
+        addKiyaMessage(msg)
         setIsSubmitted(true)
       } else {
         addKiyaMessage('⚠️ Oops! Something went wrong. Please try again.')
@@ -103,10 +103,13 @@ const Contact = () => {
       addKiyaMessage('Thanks! Do you want me to contact you back? (yes/no)')
       setStep('consent')
     } else if (step === 'consent') {
-      setFormData((f) => ({ ...f, consent: userMessage.toLowerCase() }))
-      handleSubmit()
+      const normalized = userMessage.trim().toLowerCase()
+      const next = { ...formData, consent: normalized }
+      setFormData(next)
+      handleSubmit(next) // ← submit the updated data
       setStep('done')
     }
+
 
     setInput('')
   }
