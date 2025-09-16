@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { FaChartLine, FaEnvelope, FaBlog, FaEye, FaCalendarAlt, FaArrowUp, FaArrowDown } from 'react-icons/fa'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import VisitsList from './VisitList'
-import { apiFetch } from '@/lib/api'
+import { apiFetch } from '../../lib/apiFetch'
 
 const Dashboard = () => {
   const [visitData, setVisitData] = useState([])
