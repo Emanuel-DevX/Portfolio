@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FaChartLine, FaEnvelope, FaBlog, FaEye, FaCalendarAlt, FaArrowUp, FaArrowDown } from 'react-icons/fa'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import VisitsList from './VisitList'
 
 const Dashboard = () => {
   const [visitData, setVisitData] = useState([])
@@ -121,6 +122,7 @@ const Dashboard = () => {
           </ResponsiveContainer>
         </div>
       </div>
+      <VisitsList />
     </div>
   )
 }
