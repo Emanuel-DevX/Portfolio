@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { FaChartLine, FaEnvelope, FaBlog, FaEye, FaCalendarAlt, FaArrowUp, FaArrowDown } from 'react-icons/fa'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import VisitsList from './VisitList'
-
+import { apiFetch } from '@/lib/api'
 const Dashboard = () => {
   const [visitData, setVisitData] = useState([])
   const [stats, setStats] = useState({
@@ -17,20 +17,21 @@ const Dashboard = () => {
     const fetchStats = async () => {
       try {
         const token = localStorage.getItem('adminToken')
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/dashboard/stats`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        // const res = await fetch(`${import.meta.env.VITE_API_URL}/dashboard/stats`, {
+        //   headers: { Authorization: `Bearer ${token}` },
+        // })
+        const res = await apiFetch(`/dashboard/stats`)
         const data = await res.json()
         setStats(data.stats)
         const transformed = data.visits.map((v) => {
-           const [y, m, d] = v.date.split('-').map(Number)
-           const localDate = new Date(y, m - 1, d) // local midnight
+          const [y, m, d] = v.date.split('-').map(Number)
+          const localDate = new Date(y, m - 1, d) // local midnight
 
-           return {
-             ...v,
-             day: localDate.toLocaleDateString('en-US', { weekday: 'short' }),
-             date: localDate.toLocaleDateString('en-CA'), // YYYY-MM-DD in local tz
-           }
+          return {
+            ...v,
+            day: localDate.toLocaleDateString('en-US', { weekday: 'short' }),
+            date: localDate.toLocaleDateString('en-CA'), // YYYY-MM-DD in local tz
+          }
         })
         setVisitData(transformed)
       } catch (err) {
