@@ -3,7 +3,6 @@ import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { FaHome, FaBlog, FaEnvelope, FaUsers, FaSignOutAlt } from 'react-icons/fa'
 
 const AdminLayout = () => {
-
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -12,6 +11,23 @@ const AdminLayout = () => {
     if (!token && location.pathname !== '/admin/login') {
       navigate('/admin/login', { replace: true, state: { from: location } })
     }
+
+    const verifyToken = async () => {
+      if (!token) return
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/verify`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        if (res.status === 401 || res.status === 403) {
+          localStorage.removeItem('adminToken')
+          navigate('/admin/login', { replace: true })
+        }
+      } catch {
+        localStorage.removeItem('adminToken')
+        navigate('/admin/login', { replace: true })
+      }
+    }
+    verifyToken();
   }, [navigate, location])
 
   const handleLogout = () => {
@@ -43,8 +59,6 @@ const AdminLayout = () => {
 
   return (
     <div className="h-screen overflow-y-scroll custom-scrollbar pb-15">
-
-
       {/* Header */}
       {!isLoginPage && (
         <header className="relative bg-black/30 backdrop-blur-xl border-b border-zinc-800 px-6 py-4">

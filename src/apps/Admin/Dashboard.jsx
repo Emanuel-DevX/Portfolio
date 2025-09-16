@@ -3,6 +3,7 @@ import { FaChartLine, FaEnvelope, FaBlog, FaEye, FaCalendarAlt, FaArrowUp, FaArr
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import VisitsList from './VisitList'
 import { apiFetch } from '@/lib/api'
+
 const Dashboard = () => {
   const [visitData, setVisitData] = useState([])
   const [stats, setStats] = useState({
